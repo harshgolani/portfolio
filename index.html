@@ -13,9 +13,9 @@
   --bg1:#09090e;
   --bg2:#0c0c12;
   --bg3:#101018;
-  --accent:#c8d6e5;
-  --accent2:#e8f0f8;
-  --accent3:#5a7a96;
+  --accent:#c4a090;
+  --accent2:#dfc0b0;
+  --accent3:#7a5a50;
   --text:#ede9e4;
   --text2:#8a8680;
   --text3:#4a4845;
@@ -29,32 +29,8 @@ html{scroll-behavior:smooth}
 body{
   background:var(--bg);color:var(--text);
   font-family:'Outfit',sans-serif;
-  overflow-x:hidden;cursor:none;
+  overflow-x:hidden;
 }
-
-/* Crosshair cursor */
-#cur{
-  position:fixed;pointer-events:none;z-index:9999;
-  width:20px;height:20px;
-  transform:translate(-50%,-50%);
-  transition:opacity .2s;
-}
-#cur::before,#cur::after{
-  content:'';position:absolute;background:var(--accent);
-  transition:background .2s;
-}
-#cur::before{width:1px;height:20px;left:50%;top:0;transform:translateX(-50%)}
-#cur::after{width:20px;height:1px;top:50%;left:0;transform:translateY(-50%)}
-#cur-dot{
-  position:fixed;pointer-events:none;z-index:10000;
-  width:3px;height:3px;background:var(--accent2);border-radius:50%;
-  transform:translate(-50%,-50%);
-  transition:width .15s,height .15s;
-}
-body:has(a:hover) #cur::before,body:has(a:hover) #cur::after{background:var(--accent2)}
-body:has(a:hover) #cur-dot{width:6px;height:6px}
-
-/* Subtle grid */
 body::before{
   content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   background-image:
@@ -62,8 +38,6 @@ body::before{
     linear-gradient(90deg,rgba(200,214,229,.012) 1px,transparent 1px);
   background-size:80px 80px;
 }
-
-/* Nav */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:200;
   padding:2rem 6vw;
@@ -91,13 +65,11 @@ nav.scrolled{
 .nav-links a:hover{color:var(--accent)}
 .nav-cta{
   color:var(--accent) !important;
-  border:1px solid rgba(200,214,229,.25);
+  border:1px solid rgba(196,160,144,.25);
   padding:.4rem 1.1rem;
   transition:background .2s !important,border-color .2s !important;
 }
-.nav-cta:hover{background:rgba(200,214,229,.07) !important;border-color:rgba(200,214,229,.5) !important}
-
-/* Hero */
+.nav-cta:hover{background:rgba(196,160,144,.07) !important;border-color:rgba(196,160,144,.5) !important}
 .hero{
   min-height:100vh;
   display:flex;flex-direction:column;
@@ -108,7 +80,7 @@ nav.scrolled{
 }
 .hero-glow{
   position:absolute;width:800px;height:500px;
-  background:radial-gradient(ellipse,rgba(74,157,138,.04) 0%,rgba(200,214,229,.03) 40%,transparent 70%);
+  background:radial-gradient(ellipse,rgba(196,160,144,.05) 0%,rgba(196,160,144,.02) 40%,transparent 70%);
   top:50%;left:50%;transform:translate(-50%,-52%);
   pointer-events:none;
 }
@@ -131,7 +103,7 @@ nav.scrolled{
 .hero-name span{
   font-style:italic;font-weight:400;
   color:transparent;
-  -webkit-text-stroke:1px rgba(200,214,229,.5);
+  -webkit-text-stroke:1px rgba(196,160,144,.45);
 }
 .hero-rule{
   width:1px;height:48px;
@@ -183,8 +155,6 @@ nav.scrolled{
 .scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,var(--accent3),transparent);animation:sl 2.5s ease-in-out infinite}
 .hero-scroll span{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--text3)}
 @keyframes sl{0%,100%{opacity:.25;transform:scaleY(1)}50%{opacity:.9;transform:scaleY(1.25)}}
-
-/* Marquee */
 .marquee{
   overflow:hidden;border-top:1px solid var(--border);
   border-bottom:1px solid var(--border);
@@ -201,8 +171,6 @@ nav.scrolled{
 }
 .m-item::after{content:'';width:3px;height:3px;background:var(--accent3);border-radius:50%}
 @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-/* Sections */
 section{padding:8rem 6vw;position:relative;z-index:1}
 .s-eyebrow{
   font-family:'DM Mono',monospace;font-size:9px;
@@ -218,8 +186,6 @@ section{padding:8rem 6vw;position:relative;z-index:1}
   letter-spacing:-.02em;margin-bottom:5rem;
 }
 .s-title em{font-style:italic;color:var(--accent)}
-
-/* Projects */
 .projects{background:var(--bg1)}
 .proj-grid{
   display:grid;grid-template-columns:repeat(2,1fr);
@@ -245,8 +211,8 @@ section{padding:8rem 6vw;position:relative;z-index:1}
   letter-spacing:.1em;text-transform:uppercase;
   padding:.2rem .6rem;border:1px solid;
 }
-.ba{color:var(--accent);border-color:rgba(200,214,229,.25);background:rgba(200,214,229,.04)}
-.bs{color:var(--accent3);border-color:rgba(90,122,150,.3);background:rgba(90,122,150,.04)}
+.ba{color:var(--accent);border-color:rgba(196,160,144,.25);background:rgba(196,160,144,.04)}
+.bs{color:var(--accent3);border-color:rgba(122,90,80,.3);background:rgba(122,90,80,.04)}
 .bd{color:var(--teal);border-color:rgba(74,157,138,.3);background:rgba(74,157,138,.04)}
 .bp{color:var(--violet);border-color:rgba(138,122,184,.3);background:rgba(138,122,184,.04)}
 .p-name{
@@ -264,7 +230,7 @@ section{padding:8rem 6vw;position:relative;z-index:1}
   font-family:'DM Mono',monospace;font-size:10.5px;
   color:var(--accent3);padding:.45rem .7rem;
   border-left:1.5px solid var(--accent3);
-  background:rgba(90,122,150,.04);
+  background:rgba(122,90,80,.04);
   margin-bottom:1.75rem;line-height:1.65;
 }
 .p-stack{display:flex;flex-wrap:wrap;gap:.28rem;margin-bottom:1.75rem;margin-top:auto}
@@ -283,8 +249,6 @@ section{padding:8rem 6vw;position:relative;z-index:1}
 }
 .plink:hover{opacity:.55}
 .plink.dim{color:var(--text3)}
-
-/* About */
 .about{background:var(--bg)}
 .about-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:7rem;align-items:start}
 .about-text p{
@@ -316,8 +280,6 @@ section{padding:8rem 6vw;position:relative;z-index:1}
 .edu{border-left:1px solid var(--border2);padding-left:1.5rem}
 .edu-t{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:500;margin-bottom:.3rem}
 .edu-s{font-family:'DM Mono',monospace;font-size:9.5px;color:var(--text3);letter-spacing:.06em}
-
-/* Skills */
 .skills{background:var(--bg2)}
 .skills-grid{
   display:grid;grid-template-columns:repeat(3,1fr);
@@ -337,8 +299,6 @@ section{padding:8rem 6vw;position:relative;z-index:1}
   color:var(--text3);padding:.18rem .48rem;
   border:1px solid var(--border);letter-spacing:.06em;
 }
-
-/* Contact */
 .contact{background:var(--bg1);text-align:center;padding-bottom:7rem}
 .contact-inner{max-width:600px;margin:0 auto}
 .c-heading{
@@ -370,8 +330,6 @@ section{padding:8rem 6vw;position:relative;z-index:1}
   transition:color .2s;
 }
 .clink:hover{color:var(--accent)}
-
-/* Footer */
 footer{
   padding:1.6rem 6vw;border-top:1px solid var(--border);
   display:flex;justify-content:space-between;align-items:center;
@@ -381,15 +339,11 @@ footer p{font-family:'DM Mono',monospace;font-size:8.5px;color:var(--text3);lett
 .status{display:flex;align-items:center;gap:.5rem;font-family:'DM Mono',monospace;font-size:8.5px;color:var(--text3);letter-spacing:.08em}
 .dot{width:5px;height:5px;background:#4ade80;border-radius:50%;animation:blink 2.5s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.15}}
-
-/* Animations */
 @keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease}
 .reveal.in{opacity:1;transform:translateY(0)}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
-
-/* Responsive */
 @media(max-width:900px){
   .proj-grid,.skills-grid{grid-template-columns:1fr}
   .about-inner{grid-template-columns:1fr;gap:3.5rem}
@@ -404,8 +358,6 @@ footer p{font-family:'DM Mono',monospace;font-size:8.5px;color:var(--text3);lett
 </style>
 </head>
 <body>
-<div id="cur"></div>
-<div id="cur-dot"></div>
 
 <nav id="nav">
   <a href="#" class="nav-logo">Harsh Golani</a>
@@ -417,14 +369,12 @@ footer p{font-family:'DM Mono',monospace;font-size:8.5px;color:var(--text3);lett
   </ul>
 </nav>
 
-<!-- Hero -->
 <section class="hero" id="home">
   <div class="hero-glow"></div>
-  <div class="hero-tag">Available May 2026</div>
   <h1 class="hero-name">Harsh <span>Golani</span></h1>
   <div class="hero-rule"></div>
   <p class="hero-hl">I build AI systems and data tools that move business metrics.</p>
-  <p class="hero-sub">NYU Computer Engineering, May 2026. Built an e-commerce brand from scratch in my final year of undergrad, scaled it to 20,000 customers and $150K in revenue, then came here to go deeper on the engineering side.</p>
+  <p class="hero-sub">NYU Computer Engineering, May 2026. Built an e-commerce brand from scratch in my final year of undergrad, scaled it to 20,000 customers and $150K in revenue, then moved to US for my Masters to go deeper on the engineering side.</p>
   <div class="hero-ctas">
     <a href="#projects" class="btn-p">See My Work ↓</a>
     <a href="mailto:h.golani@nyu.edu" class="btn-s">Get in Touch →</a>
@@ -435,7 +385,6 @@ footer p{font-family:'DM Mono',monospace;font-size:8.5px;color:var(--text3);lett
   </div>
 </section>
 
-<!-- Marquee -->
 <div class="marquee">
   <div class="m-track">
     <span class="m-item">RAG Pipelines</span><span class="m-item">LLM Agents</span>
@@ -455,7 +404,6 @@ footer p{font-family:'DM Mono',monospace;font-size:8.5px;color:var(--text3);lett
   </div>
 </div>
 
-<!-- Projects -->
 <section class="projects" id="projects">
   <div class="s-eyebrow reveal">Selected Work</div>
   <h2 class="s-title reveal d1">Projects built with <em>purpose</em><br>and deployed with care</h2>
@@ -474,7 +422,7 @@ footer p{font-family:'DM Mono',monospace;font-size:8.5px;color:var(--text3);lett
       </div>
       <div class="p-links">
         <a href="#" class="plink">Live Demo ↗</a>
-        <a href="https://github.com/harshgolani" target="_blank" class="plink dim">GitHub →</a>
+        <a href="#" class="plink dim">GitHub →</a>
       </div>
     </div>
 
@@ -491,7 +439,7 @@ footer p{font-family:'DM Mono',monospace;font-size:8.5px;color:var(--text3);lett
       </div>
       <div class="p-links">
         <a href="#" class="plink">Live Demo ↗</a>
-        <a href="https://github.com/harshgolani" target="_blank" class="plink dim">GitHub →</a>
+        <a href="#" class="plink dim">GitHub →</a>
       </div>
     </div>
 
@@ -508,7 +456,7 @@ footer p{font-family:'DM Mono',monospace;font-size:8.5px;color:var(--text3);lett
       </div>
       <div class="p-links">
         <a href="#" class="plink">Live Demo ↗</a>
-        <a href="https://github.com/harshgolani" target="_blank" class="plink dim">GitHub →</a>
+        <a href="#" class="plink dim">GitHub →</a>
       </div>
     </div>
 
@@ -525,7 +473,7 @@ footer p{font-family:'DM Mono',monospace;font-size:8.5px;color:var(--text3);lett
       </div>
       <div class="p-links">
         <a href="#" class="plink">Live Demo ↗</a>
-        <a href="https://github.com/harshgolani" target="_blank" class="plink dim">GitHub →</a>
+        <a href="#" class="plink dim">GitHub →</a>
       </div>
     </div>
 
@@ -542,7 +490,7 @@ footer p{font-family:'DM Mono',monospace;font-size:8.5px;color:var(--text3);lett
       </div>
       <div class="p-links">
         <a href="#" class="plink">Live Demo ↗</a>
-        <a href="https://github.com/harshgolani" target="_blank" class="plink dim">GitHub →</a>
+        <a href="#" class="plink dim">GitHub →</a>
       </div>
     </div>
 
@@ -565,7 +513,6 @@ footer p{font-family:'DM Mono',monospace;font-size:8.5px;color:var(--text3);lett
   </div>
 </section>
 
-<!-- About -->
 <section class="about" id="about">
   <div class="s-eyebrow reveal">Background</div>
   <h2 class="s-title reveal d1">Engineer who has<br><em>shipped real things</em></h2>
@@ -595,7 +542,6 @@ footer p{font-family:'DM Mono',monospace;font-size:8.5px;color:var(--text3);lett
   </div>
 </section>
 
-<!-- Skills -->
 <section class="skills" id="skills">
   <div class="s-eyebrow reveal">Technical Skills</div>
   <h2 class="s-title reveal d1">What I build <em>with</em></h2>
@@ -630,17 +576,15 @@ footer p{font-family:'DM Mono',monospace;font-size:8.5px;color:var(--text3);lett
   </div>
 </section>
 
-<!-- Contact -->
 <section class="contact" id="contact">
   <div class="contact-inner">
     <div class="s-eyebrow reveal" style="justify-content:center">Contact</div>
     <h2 class="c-heading reveal d1">Let's build<br><em>something</em></h2>
-    <p class="c-desc reveal d2">Open to AI Engineer, SDE, Data Analyst, and FDE roles<br>NYC / New Jersey · Available May 2026</p>
+    <p class="c-desc reveal d2">Open to AI Engineer, SDE, Data Analyst, and FDE roles<br>Available May 2026</p>
     <a href="mailto:h.golani@nyu.edu" class="c-email reveal d2">h.golani@nyu.edu</a>
     <div class="c-links reveal d3">
       <a href="https://www.linkedin.com/in/harsh-golani-nyu" target="_blank" class="clink">LinkedIn ↗</a>
       <a href="https://github.com/harshgolani" target="_blank" class="clink">GitHub ↗</a>
-      <a href="#" class="clink">Resume PDF ↗</a>
     </div>
   </div>
 </section>
@@ -651,18 +595,6 @@ footer p{font-family:'DM Mono',monospace;font-size:8.5px;color:var(--text3);lett
 </footer>
 
 <script>
-const cur=document.getElementById('cur'),dot=document.getElementById('cur-dot');
-let mx=0,my=0,cx=0,cy=0;
-document.addEventListener('mousemove',e=>{
-  mx=e.clientX;my=e.clientY;
-  dot.style.left=mx+'px';dot.style.top=my+'px';
-});
-(function loop(){
-  cx+=(mx-cx)*.12;cy+=(my-cy)*.12;
-  cur.style.left=cx+'px';cur.style.top=cy+'px';
-  requestAnimationFrame(loop);
-})();
-document.getElementById('nav').addEventListener('click',()=>{});
 window.addEventListener('scroll',()=>{
   document.getElementById('nav').classList.toggle('scrolled',scrollY>50);
 });
